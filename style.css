@@ -16,6 +16,7 @@ body {
   .circle {
     position: absolute;
     border-radius: 50%;
+    z-index: -1;
     background: rgba(178, 124, 124, 0.15);
     animation: float 4s infinite ease-in-out;
   }
