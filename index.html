@@ -5,6 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Portfolio</title>
+    <style>
+        
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #D2D2D2;
+            background-image:
+            repeating-linear-gradient(
+                to right, transparent 0 100px,
+                #25283b22 100px 101px
+            ),
+            repeating-linear-gradient(
+                to bottom, transparent 0 100px,
+                #25283b22 100px 101px
+            );
+        }
+        
+        body::before {
+          content: "";
+          position: fixed;          /* 👈 key fix */
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: min(1400px, 90vw);
+          height: 100vh;            /* 👈 full viewport */
+          background-image: url(assets/bg.png);
+          background-repeat: repeat-y;
+          background-size: contain;
+          background-position: top center;
+          pointer-events: none;
+          z-index: -1;
+          
+}
+
+    </style>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
   </head>
@@ -40,12 +78,23 @@
       </div>
     </nav>
     <section id="profile">
-      <div class="section__pic-container">
-        <img src="./assets/picture.jpg" alt="Mohammad Saif profile picture" id="picture"/>
-      </div>
+      <!-- <div class="section__pic-container">
+        <img src="./assets/profile-6.png" alt="Mohammad Saif profile picture" id="picture"/>
+      </div> -->
       <div class="section__text">
-        <p class="section__text__p1">Hello, I'm</p>
-        <h1 class="title">Mohammad Saif</h1>
+       <div class="content">
+            <h1 data-content="SAIF">
+                SAIF
+            </h1>
+            <div class="author">
+                <h2>Saif</h2>
+                <p><b>passionate</b></p>
+                <p>
+                    hey there
+                </p>
+            </div>
+            <div class="model"></div>
+        </div>
 
         <div class="btn-container">
           <button
