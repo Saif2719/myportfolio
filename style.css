@@ -9,23 +9,23 @@ body {
   
 }
  
-  /* Floating background circles */
+  /* /* Floating background circles */
   .circle {
     position: absolute;
-    border-radius: 50%;
+    border-radius: 20%;
     z-index: -1;
     background: rgba(178, 124, 124, 0.15);
     animation: float 4s infinite ease-in-out;
   }
   .circle:nth-child(1) { width: 200px; height: 200px; top: 5%; left: 10%; }
-  .circle:nth-child(2) { width: 300px; height: 300px; bottom: 10%; right: 8%; animation-duration: 12s; }
-  .circle:nth-child(3) { width: 120px; height: 120px; bottom: 20%; left: 20%; animation-duration: 10s; }
+  .circle:nth-child(2) { width: 300px; height: 300px; bottom: 10%; right: 8%; animation-duration: 8s; }
+  .circle:nth-child(3) { width: 120px; height: 120px; bottom: 20%; left: 20%; animation-duration: 3s; }
 
   @keyframes float {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-40px); }
     100% { transform: translateY(0px); }
-  }
+  } */
 html {
   scroll-behavior: smooth;
 }
@@ -96,6 +96,7 @@ a:hover {
   height: 24px;
   width: 30px;
   cursor: pointer;
+  
 }
 
 .hamburger-icon span {
@@ -114,6 +115,7 @@ a:hover {
   max-height: 0;
   overflow: hidden;
   transition: all 0.3 ease-in-out;
+  
 }
 
 .menu-links a {
@@ -132,6 +134,10 @@ a:hover {
 
 .menu-links.open {
   max-height: 300px;
+  border-radius: 20px;
+  opacity: 0.8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 4;
 }
 
 .hamburger-icon.open span:first-child {
@@ -238,28 +244,56 @@ section {
   display: flex;
   gap: 1rem;
   z-index: 3;
+  animation: slideFromRight 1s ease-out 0.3s forwards;
+  transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+}
+@keyframes slideFromRight {
+    from {
+        transform: translateX(800px);
+        opacity: 0.5;
+    }
+    to {
+        transform: translateX(0);
+        
+    }
 }
 
 
 /* Social icons → screen right */
 #profile #socials-container {
   position: absolute;
-  right: 1.5rem;
-  top: calc(45% + 5rem); /* 👈 below buttons */
+  right: 7.4rem;
+  top: calc(45% + 7rem); /* 👈 below buttons */
   display: flex;
   gap: 1rem;
   z-index: 3;
+  animation: slideFromRight 1s ease-out 0.3s forwards;
+  
 }
-
+@keyframes slideFromRight {
+    from {
+        transform: translateX(800px);
+        opacity: 0.5;
+    }
+    to {
+        transform: translateX(0);
+        
+    }
+}
 
 
 .icon {
   cursor: pointer;
-  justify-content: flex-end;
+  justify-content: center;
   height: 2rem;
   z-index: 2;
-}
+  transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
 
+}
+.icon:hover {
+  transform: scale(1.2);
+}
 /* BUTTONS */
 
 
@@ -281,6 +315,7 @@ section {
 .btn-color-1:hover,
 .btn-color-2:hover {
   cursor: pointer;
+  transform: scale(1.2);
 }
 
 .btn-color-1,
@@ -315,6 +350,7 @@ section {
   gap: 2rem;
   margin-bottom: 2rem;
   margin-top: 2rem;
+  
 }
 
 .about-details-container {
@@ -340,12 +376,13 @@ section {
 .details-container {
   padding: 1.5rem;
   flex: 1;
-  background: white;
+  background: rgba(255, 255, 255, 0.5); /* 0.1 = very light, 1 = solid */
   border-radius: 2rem;
-  border: rgb(53, 53, 53) 0.1rem solid;
-  border-color: rgb(163, 163, 163);
+  border: 0.1rem solid rgb(163, 163, 163);
   text-align: center;
 }
+
+
 
 .section-container {
   gap: 4rem;
@@ -405,7 +442,7 @@ article .icon {
 
 .color-container {
   border-color: rgb(163, 163, 163);
-  background: rgb(250, 250, 250);
+  background: rgba(255, 255, 255, 0.5); /* 0.1 = very light, 1 = solid */
 }
 
 .project-img {
@@ -484,8 +521,8 @@ footer p {
     padding-bottom: 100px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     align-items: center;
+    isolation: isolate;
     z-index: 1;
 }
 .content h1{
@@ -496,6 +533,18 @@ footer p {
     left: 80px;
     color: #25283B;
     position: relative;
+    mix-blend-mode: multiply;
+    animation: slideFromLeft 1.2s ease-out 0.3s forwards;
+}
+@keyframes slideFromLeft {
+    from {
+        transform: translateX(-800px);
+        opacity: 0.5;
+    }
+    to {
+        transform: translateX(0);
+        
+    }
 }
  .content h1::after{
     position: absolute;
@@ -517,16 +566,43 @@ footer p {
  .content .model{
     background-image: url(assets/profile-6.png);
     width: 100%;
-    height: 80vh;
+    height: 90vh;
     position: absolute;
     bottom: -30px;
     left: 0;
     border-radius: 10px;
-    background-size: auto 130%;
+    background-size: auto 110%;
     background-repeat: no-repeat;
     background-position: top center;
     z-index: 1;
+    animation: riseUp 1s ease-out 0.3s forwards;
+    opacity: 0;
+} 
+@keyframes riseUp {
+    from {
+        transform: translateY(800px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
+.content .model::after {
+    content: "";
+    position: absolute;
+    bottom: -60px;           /* distance from container */
+    left: 50%;               /* center horizontally */
+    transform: translateX(-50%);
+    width: 700px;            /* shadow width */
+    height: 100px;            /* shadow height */
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 50%;      /* makes it circular/oval */
+    filter: blur(20px);      /* soft shadow effect */
+    z-index: -1;             /* behind the container */
+}
+
+
 @media screen and (max-width: 1023px) {
     .slider{
         width: 160px;
@@ -562,20 +638,22 @@ footer p {
         height: 150px;
         left: calc(50% - 50px);
     }
-    .slider .item{
-        transform: 
-            rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
-            translateZ(180px);
-    }
+   
     .content h1{
         font-size: 5em;
+        bottom: 40px;
     }
     #profile .btn-container {
     position: static;
     transform: none;
-    justify-content: flex-end;
+    justify-content: center;
     margin-top: 0;
   }
+  .content .model{
+        height: 65vh;              /* smaller container */
+        background-size: auto 100%; /* smaller image */
+        bottom: -35px;             /* adjust positioning */
+    }
 
   /* SOCIAL ICONS STAY LOWER */
   #profile #socials-container {
