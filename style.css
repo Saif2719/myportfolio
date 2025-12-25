@@ -248,6 +248,7 @@ section {
   display: flex;
   gap: 1rem;
   z-index: 3;
+  transform: translateX(800px);
   animation: slideFromRight 1s ease-out 0.3s forwards;
   transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
 
@@ -272,6 +273,7 @@ section {
   display: flex;
   gap: 1rem;
   z-index: 3;
+  transform: translateX(800px);
   animation: slideFromRight 1s ease-out 0.3s forwards;
   
 }
@@ -538,12 +540,13 @@ footer p {
     color: #25283B;
     position: relative;
     mix-blend-mode: multiply;
+    transform: translateX(-800px);
     animation: slideFromLeft 1.2s ease-out 0.3s forwards;
 }
 @keyframes slideFromLeft {
     from {
         transform: translateX(-800px);
-        opacity: 0.5;
+        opacity: 0;
     }
     to {
         transform: translateX(0);
