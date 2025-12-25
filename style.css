@@ -661,6 +661,9 @@ footer p {
 
   /* SOCIAL ICONS STAY LOWER */
   #profile #socials-container {
-    display: none;
+    position: static;
+    transform: none;
+    justify-content: center;
+    margin-top: 40px;
   }
 }
